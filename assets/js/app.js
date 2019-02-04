@@ -34,15 +34,18 @@ function gifRDun(results) {
         if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
             // Make div container
             var gifDiv = $("<div>");
-            gifDiv.addClass("gifBtn float-left");
+            gifDiv.addClass("gifDiv float-left");
             var size = results[i].images.fixed_height_still.width + "px";
             gifDiv.css({
+                "text-transform": "capitalize",
                 width: size,
                 margin: "10px"
             });
-            // Make info paragraph
+            // Make info paragraphs
+            var title = results[i].title;
             var rating = results[i].rating;
-            var p = $("<p>").text("Rating: " + rating);
+            var ph = $("<p>").text(title);
+            var pf = $("<p>").text("Rating: " + rating);
             // Make image
             var gif = $("<img>");
             gif.addClass("gifImg");
@@ -53,10 +56,11 @@ function gifRDun(results) {
                 "data-state": "still"
             });
             // Combine
-            gifDiv.append(p);
+            gifDiv.append(ph);
             gifDiv.append(gif);
+            gifDiv.append(pf);
             // Prepend
-            $("#gifs").prepend(gifDiv);
+            $("#gifs-here").prepend(gifDiv);
         }
     }
 }
@@ -69,36 +73,51 @@ buttonator();
 $("form").on("submit", function(event) {
 
     event.preventDefault();
+    event.stopImmediatePropagation()
 
     console.log("newbutton");
 
-    var newGif = $("#add-gif").val().trim();
+    var newGif = $("#gif-input").val().trim();
     gifArr.push(newGif);
     buttonator();
-    $("form").trigger("reset");
+
+    $(this).trigger("reset");
 
 });
 
-$(".gifBtn").on("click", function() {
+$(document).on("click", ".gifBtn", function(event) {
+
+    event.stopImmediatePropagation()
+
     console.log("get gifs")
+
     var slctgif = $(this).attr("data-gif");
     var query = "&q=star+trek+" + slctgif;
     var queryURL = url + query;
     console.log(queryURL);
+
     $.ajax({
         url: queryURL,
         method: "GET",
     }).then(function(response) {
         console.log(response);
-        $("#gifs").empty();
+
+        $("#gifs-here").empty();
         var results = response.data;
         gifRDun(results);
+
     });
+
 });
 
-$(".gifImg").on("click", function() {
+$(document).on("click", "img", function(event) {
+
+    event.stopImmediatePropagation()
+
     console.log("playpause");
+
     var state = $(this).attr("data-state");
+
     if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
@@ -106,6 +125,7 @@ $(".gifImg").on("click", function() {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
     }
+
 });
 
 });
