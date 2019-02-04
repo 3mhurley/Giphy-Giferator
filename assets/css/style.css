@@ -1,17 +1,17 @@
-/* body {
+body {
     color: #000;
-    -- background-image: url(../images/earth_wallpaper.jpg);
-    background: url(../images/earth_wallpaper.jpg) no-repeat center center fixed;
+    /* background-image: url(../images/star-trek-wallpaper.jpg); */
+    background: url(../images/star-trek-wallpaper.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-#main-container {
+/* #main-container {
     background-color: #fff;
     border: 1pt solid #ddd;
-    width: 100%;
+    width: 100%
     max-width: 960px;
 }
 
@@ -20,5 +20,5 @@
 }
 .invisible {
   visibility: hidden;
-}
-*/
+} */
+

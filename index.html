@@ -16,16 +16,31 @@
 </head>
 <body>
     <!-- JUMBO the TRON -->
-    <div id="jumboTHEtron" class="jumbotron jumbotron-fluid p-3 mb-2 bg-primary text-white text-center">
+    <div id="jumboTHEtron" class="jumbotron jumbotron-fluid p-3 mb-2 bg-dark text-white text-center">
         <div class="container">
-            <h1 class="display-4">The Space Race</h1>
-            <p class="lead">How well do you know your space race history?</p>
+            <h1 class="display-4">GIFITUP</h1>
+            <p class="lead">Star Trek is Here</p>
         </div>
     </div>
 
     <!-- Main Container -->
-    <div id="main-container" class="container position-relative text-center rounded">
-        
+    <div id="main-container" class="container-fluid text-white">
+        <div class="row">
+            <div id="gif-btns" class="col">
+            </div>
+        </div>
+        <div class="row">
+            <div id="gifs" class="col-8 float-left"></div>
+            <div id="new-gifs" class="col-4 clearfix">
+                <form>
+                    <h2 class="text-center">Add your own gif button!</h2>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="add-gif" placeholder="USS Enterprise">
+                    </div>
+                    <button type="submit" class="btn btn-primary mx-auto" id="submit">Submit</button>
+                  </form>
+            </div>
+        </div>
     </div>
 
     <!-- JS Link -->

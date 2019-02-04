@@ -52,4 +52,29 @@ Attempt to complete homework assignment as described in instructions. If unable 
 
 ### html
 
+Row 1 - 1 column
+
+* buttons with topic as label
+  * generates gifs when clicked
+  * starts with 4 buttons
+  * new buttons generated with form
+
+Row 2 - 2 columns
+
+* column a (8)
+  * gif x10
+    * still until clicked
+    * Metadata
+      * Rating
+      * Title
+      * Tags
+    * favorite button
+    * download button
+  * favorites
+    * same format as others but favorites list
+* column b (4)
+  * add item form
+  * show favorites button
+
 ### js
+
